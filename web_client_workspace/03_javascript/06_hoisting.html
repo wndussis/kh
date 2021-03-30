@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js - hoisting</title>
+</head>
+<body>
+   <h1>Hoisting</h1> 
+    <script>
+     // var a; // var키워드로 선언된 변수는 hoisting 된다.
+     // function foo; // 함수선언식 hoisting 된다.
+     // var bar; // var키워드로 선언된 변수는 hoisting 된다 
+    var a; // var키워드로 선언된 변수는 hoisting 된다.
+    console.log(a); // 오류안나고 undifined로 나옴 값대입은 밑에서 일어나니까
+    a = "안녕";
+    // var a = "안녕";
+
+    //fuction foo; // 함수선언식 hoisting 된다.
+    foo(); //오류없이 작동함
+    /**
+     * 함수 선언식은 hoisting된다. - 함수 선언전에  미리 호출해도 잘 작동한다.!!!!!
+     */ 
+    function foo(){
+      console.log("foo");
+    }
+
+    bar(); //Uncaught TypeError: bar is not a function, 오류가 나면 하위 코드들은 실행되지않는다!
+    /**
+     * 함수 표현식 - 미리 호출하면 오류난다.
+     * bar변수에 익명함수를 대입해둔것
+     */ 
+    var bar = function(){
+        console.log("bar");
+    };
+
+    </script>
+
+
+</body>
+</html>

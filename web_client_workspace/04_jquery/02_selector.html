@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery - selector</title>
+    <script src="js/jquery-3.6.0.js"></script> <!-- 이거 추가하는거 잊지말기-->
+</head>
+<body>
+   <h1>Selector</h1>
+  <!--ul>li.foo#bar${안녕$}*5 --> 
+   <ul>
+       <li class="foo" id="bar1">안녕1</li>
+       <li class="foo" id="bar2">안녕2</li>
+       <li class="foo" id="bar3">안녕3</li>
+       <li id="bar4">안녕4</li>
+       <li id="bar5">안녕5</li>
+   </ul>
+   <input type="button" value="tag" onclick="test1();">
+   <script>
+    /**
+     * tag
+     * class
+     * id
+     * 
+     */
+    function test1(){
+    //  var $lis = $("ul > li"); // $ 변수는 jquery객체다
+    //  console.log($lis); // jquery 객체
+    //  $lis.css("color","springgreen");
+
+
+    //  //위에꺼를 자바스크립트로 하면
+    // var lis = document.querySelectorAll("ul > li")  // 이건 배열이니까 하나하나 해줘야함 아래에서
+    //  for(var i = 0; i < lis.length; i++)
+    //     lis[i].style.color = "blue";
+
+     $(".foo").css("font-size", "2em"); // 폰트사이즈 2배로
+
+
+    var $bar1 = $("#bar1"); 
+    var $bar1_;
+    console.log($bar1);
+    // console.log($("#bar1").css("text-decoration","underline")); // css함수의 리턴값 나옴,  해당 jquery객체를 다시 리턴함
+    console.log($bar1_ = $bar1.css("text-decoration", "underline"));
+    console.log($bar1 == $bar1_); // true
+
+    // method chaining -> 계속 연달아 호출 가능하다는 뜻
+    $("#bar1").css("font-size", "3em")
+              .css("background-color", "deeppink")
+              .css("color", "#fff");
+    }
+   </script>
+
+   <hr>
+   <fieldset>
+    <legend>메뉴</legend>
+       <!--input:checkbox[name=menu]#menu$+label[for=menu$]-->
+       <input type="checkbox" name="menu" id="menu1" value="햄버거"><label for="menu1">햄버거</label>
+       <input type="checkbox" name="menu" id="menu2" value="핫도그"><label for="menu2">핫도그</label>
+       <input type="checkbox" name="menu" id="menu3" value="피자"><label for="menu3">피자</label>
+       <input type="checkbox" id="menuAll"><label for="menuAll">전체선택/해제</label>
+       <input type="button" value="get | set" id="checkGetSet">
+       <input type="button" value="확인" id="checkValue">
+    </fieldset>
+    <script>
+    $("#checkValue").click(function(){
+      //우선 가져오기 -> $("[name=menu]")
+      //jquery객체 요소 순회 -> each(function(index,elem) 
+    //   $("[name=menu").each(function(index,elem){
+    //     // console.log(index,elem); // elem은 순수 js tag 객체이다
+    //     var $elem = $(elem);
+    //     if($elem.prop("checked"))
+    //        console.log($elem.val()); //val = value, val 은 jquery함수다
+    //   });
+
+        $("[name=menu]:checked").each(function(index,menu){
+           console.log(menu.value); // javascript 방식
+           console.log($(menu).val()); // $함수에 집어넣으면 jquery객체가 된다!, jquery객체의 메소드 val을 쓰는 방식
+      });
+    });
+
+
+    /**
+     * #checkGetSet  click event  handling
+     * 복수개의 요소를 가진 jquery객체
+     * - getter 첫번째인자의 속성값 리턴
+     * - setter 모든 인자의 속성값에 적용
+     */
+
+    $("#checkGetSet").click(function(){
+    //    console.log($("[name=menu]").prop("checked")) // getter
+       console.log($("[name=menu]").prop("checked",true)); // setter
+
+    });
+
+
+    /**
+     * [name=menu] 전체선택/해제 처리
+     */
+    $("#menuAll").change(function(e){
+     $("[name=menu]").prop("checked",this.checked);
+    });
+
+    console.log($("[name=menu]"));
+    console.log($("[name]"));
+    console.log($("[type=checkbox]"));
+
+    // jQuery에서 이벤트핸들링
+    $("[name=menu]").change(function(e){
+    //   console.log(e);  // 어떤일을 해줬으면 좋겠다 를 여기에 작성
+    //   console.log(e.target);
+    //   console.log(this); // 이거 포함해서 위에두개까지 모두 동일함
+    //   console.log(this.checked);
+
+      // jquery객체
+    console.log($(this).prop("checked")); // prop메소드가 true 혹은 false로 리턴해줌
+                                         // getter로 사용
+    $(e.target).prop("checked",false); // 절대 체크되지 않음,true로 쓰면 체크됨 setter로 사용
+
+    //value속성값 가져옴
+    console.log($(e.target).val());
+    });
+    </script>
+
+    <img src="images/flower1.png" alt="" style="margin: 50px 20px; width: 300px">
+    <script>
+    /**
+     * attr
+     * html태그상에 기록된 속성을 가져오거나 설정할 경우 사용
+     * 
+     */
+    $("img").click(function(){
+    //  console.log($(this).attr("src")); // getter
+     $(this).attr("src","images/flower2.png"); // setter
+
+    });
+    </script>
+
+    
+    <!--div.wrapper>p{안녕$}*10-->
+    <div class="wrapper">
+        <p>안녕1</p>
+        <p>안녕2</p>
+        <p>안녕3</p>
+        <p>안녕4</p>
+        <p>안녕5</p>
+        <p>안녕6</p>
+        <p><a href="#">안녕7</a></p>
+        <p>안녕8</p>
+        <p>안녕9</p>
+        <p>안녕10</p>
+    </div>
+    <input type="button" value=":eq()" onclick="test2();">
+    <input type="button" value=":gt() :lt()" onclick="test3();">
+    <input type="button" value=":contains()" onclick="test4();">
+    <input type="button" value=":has()" onclick="test5();">
+    <input type="button" value=":not()" onclick="test6();">
+    <script>
+    /**
+     * :not(selector)
+     */
+    function test6(){
+      $(".wrapper p:not(:first-child)").css("color","green");
+    }
+
+    /**
+     * has
+     */
+    function test5(){
+       $(".wrapper p:has(a)").css("background-color", "lightgray");
+    }
+    /**
+     * contains()
+     * 특정 text를 가진 태그조회
+     */
+    function test4(){
+      $(".wrapper p:contains('안녕8')").css("text-decoration","line-through");
+    }
+
+    /**
+     * :gt(index)
+     * :lt(index)
+     */
+    function test3(){  
+        $(".wrapper p:gt(3)").css({  // css를 객체로 만들어서 사용하는방법
+                             "font-size" : "2em",
+                             "color" : "deeppink"
+                          });
+    }
+    
+    /**
+     * :eq(index)
+     */
+    function test2(){
+        $(".wrapper p:eq(3)").css("font-size","2em") //:eq(3) -> 3번지에 있는 거에 css를 적용하겟다
+                             .css("color","deeppink");
+    }
+    </script>
+
+
+</body>
+</html>

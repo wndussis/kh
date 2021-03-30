@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css - border </title>
+</head>
+<body>
+    <h1>Border</h1>
+    <!-- div.test -->
+    <div class="test"></div>
+    <style>
+    .test {
+        width: 200px;
+        height: 200px;
+        margin: 0 auto;
+        background-color: khaki;
+        /* border-width: 1px ;
+        border-style: solid ;
+        border-color:black ;  이걸 아래처럼 한번에 쓸수있음 !*/
+        border: 5px solid black;
+        /* border-radius: 30px; radius 값이 점점 커질수록 원에 가까워진다, 50%일때 원이됨 */
+        /* border-radius: 50% 40% 30% 20%; */
+        /* border-radius: 50% 40% 30%; */
+        /* border-radius: 50% 40%; */
+        border-radius: 50%;
+    }
+    </style>
+
+    <h2>box-shadow</h2>
+    <!-- div.box -->
+    <div class="box"></div>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: cornflowerblue;
+            border: 5px solid black;
+            border-radius: 10px;
+            margin: 10px auto;
+            /* box-shadow 순서 : 가로offset  세로offset  번짐 그림자크기 컬러*/
+        }
+        .box:hover {
+        box-shadow: 40px 10px 15px 0px darkgray;
+    }
+           
+    </style>
+</body>
+</html>

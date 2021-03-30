@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css-font</title>
+    <link rel="preconnect" href="https://fonts.google.com">
+    <link href="<link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Akaya+Telivigala&display=swap" rel="stylesheet">">
+</head>
+<body>
+    <h1>Font</h1>
+    <div class="wrapper">
+        <p id="ff1">가나다라마바사 abcdefg ABCDEFG 1234567890</p>
+        <p id="ff2">가나다라마바사 abcdefg ABCDEFG 1234567890</p>
+        <p id="ff3">가나다라마바사 abcdefg ABCDEFG 1234567890</p>
+    </div>
+    <style>
+        p {
+            font-size: 32px;
+        }
+        .wrapper {  /* 기본값을 24px 로 바꾼것 */
+            font-size:  24px;
+        }
+        #ff1 {
+            /*왼쪽부터 우선순위가 높다, 오른쪽 끝에는 generic-family 라는 기본서체를 적어둔다(왼쪽 서체들이사용자에게 없을경우 오른쪽 서체 사용하기때문)*/
+            /* serif | sans-serif | cursive | monospaced*/
+          font-family: "궁서체" ,"휴먼모음T";
+          font-size: 32px; /* px(픽셀) =  절대값 단위, 크기가 바뀌지않음*/
+        }
+        #ff2 {
+            font-family: 'Akaya Telivigala', cursive;
+            font-size: 2em; /* em = 상대값 단위(가장 가까운 부모요소 기준. 1em = 16px)*/
+        }
+        #ff3 {
+            font-family: fantasy;
+            font-size: 150%; /* % = 상대값 단위(가장 가까운 부모요소 기준. 100% = 16px*/
+        }
+        /* cascade 부모태그에 적용한 속성이 자식(후손)태그로 전이되어서 처리된다*/
+        body {
+            font-family: 'Times New Roman', Times, serif;
+        }
+    </style>
+    <hr>
+    <ul>
+        <li id="li1">글꼴 얇게</li>
+        <li id="li2">글꼴 두껍게</li>
+        <li id="li3">글꼴 더두껍게</li>
+    </ul>
+    <style>
+        ul {
+            font-weight: 200; /* ul 부모태그*/
+        }
+        li {
+            font-size: 32px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+        #li1 {
+            font-weight: 2oo;
+        }
+        #li2 {
+            font-weight: bold;
+        }
+        #li3 {
+            font-weight: bolder;
+        }
+    </style>
+
+    <span id="font">안녕하세요 ABCDEFG abcdefg 1234567890</span>
+    <style>
+        span#font {
+            /* font-style  font-variant  font-weight font-size/line-height  font-family */
+            font:italic bold 24px/30px 'Times New Roman'; /*여러가지 모아쓴것*/
+        }
+    </style>
+</body>
+</html>

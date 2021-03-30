@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-3.6.0.js"></script>
+    <style>
+    div {
+     width: 200px;
+     height: 200px;
+     background-color: orangered;
+    }
+    </style>
+    <script>
+     $(function(){
+    });
+
+    </script>
+</head>
+<script>
+    var idx = 0;
+    function addBox(){
+     $("input").last().after("<input type='box' name='b" + ++idx +"'/>");
+    }
+    function delBox(){
+      if($("input:box").length>1)
+        $()
+    }
+</script>
+<div>
+    <input type="button" value="복사하기" onclick="addBox()">
+    <input type="button" value="삭제하기" onclick="delBox()">
+</div>
+
+
+    
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js - datatype</title>
+</head>
+<body>
+ <h1>Data Type</h1>
+ <input type="button" value="실행1" onclick="test1();">
+ <script>
+     function test1(){
+      //변수 선언시 var 키워드 사용 !
+       var i;
+       console.log(i,typeof(i)); // undefined- 값대입 되지않앗을때 값도 undefined, 타입도 undefined형 이라고나옴
+      
+     //값대입이 일어날때, 변수타입이 결정된다.
+       i = 100; // 100을 넣었으니까 i는 숫자형 변수가 된다.
+       i = 3.57; // 숫자형 변수(정수,실수)
+       i = "ㅋㅋㅋ 이게 좋다규 ㅋㅋ"; //i는 문자열 변수가 된다.
+       i = '안녕'; //" " , ' ' 로 감싸서 문자형 표현
+       console.log(i,typeof(i));
+
+       i = true; // 논리형
+       console.log(i,typeof(i)); // boolean
+
+       //객체
+       //배열도 하나의 객체
+       // List<Object>와 비슷. 크기/타입제한 없음
+       i = [1,2,3,'안녕'];  // 타입제한 없어서 숫자와 문자열을 같이 넣을수 있음.
+       console.log(i,typeof(i)); // 타입은 object
+      
+       //속성명 : 속성값 -> 어떤것이든 쓸수있음
+       i = {
+        name : '홍길동',
+        age : 30,
+        hobby : ['축구','농구','야구']
+       };
+       console.log(i,typeof(i)); //console.log는 콤마,를 이용해서 여러개 작성가능하다!
+
+     //자바스크립스 함수 매개변수 선언부() 역시 자료형을 선언하지 않는다.
+     //호출할때 넘겨지는 값에 따라 자료형이 결정된다!
+     //함수를 값(리터럴)으로 취급한다, 함수를 값처럼 취급해서 변수(i)에 담았음.
+      i = function(x,y){
+        return x + y;
+      };
+      console.log(i,typeof(i)); // function 타입
+      console.log(i(3,7)); // x에3 들어가고 y에 7들어감 그래서 10이 출력됨
+
+      i = new Date(); //생성자 함수를 호출해서 Date객체로만듬,new 연산자 이용해서 객체로 만듬
+      console.log(i,typeof(i)); // object
+
+     }
+ </script>
+    
+</body>
+</html>

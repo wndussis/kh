@@ -1,0 +1,9 @@
+package member.model.service;
+
+import member.model.dao.MemberDao;
+
+public class MemberService {
+
+	private MemberDao memberDao = new MemberDao(); // dao한테 일시켜야하니까 dao객체가 필요함
+	
+}

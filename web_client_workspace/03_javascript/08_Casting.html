@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js - casting</title>
+</head>
+<body>
+ <h1>Casting</h1>  
+ <input type="button" value="실행" onclick="test1();"> 
+ <script>
+  function test1(){
+   console.log(3 + 7 + "7");  //107 , 왼쪽부터 차례로 연산됨
+   console.log(typeof(7 + "7")); // String
+
+   console.log(7 - "7"); // 0 나옴,  문자열 7이 숫자로 자동 형변환 되어서 7 - 7 이됨
+   console.log(7 * "7"); // 49
+   console.log(7 / "7"); // 1
+   console.log(7 % "4"); // 3
+
+   console.log(7 % "a"); // NaN(Not a Number) 키워드 출력됨, 숫자로 자동형변환이 불가한 우항
+   console.log(typeof(NaN));  // NaN(키워드) 은 number 타입
+   // null(키워드) 은 object 타입 
+   
+  }
+ </script>
+ <h2>Number | parseInt | parseFloat</h2>
+ <input type="button" value="실행" onclick="test2();">
+ <script>
+  var test2 = function(){
+   var num = "1234.567원";
+   console.log(Number(num)); // 1234.567 , 정수/실수로 변환 ,  변환불가한 문자가 있으면 NaN을 리턴한다.
+   console.log(parseInt(num)); // 1234 , 정수로 변환, 문자가 있어도 좌측부터 최대한 변환(문자빼고 리턴) 
+   console.log(parseFloat(num)); // 1234.567 , 실수로 변환 ,  문자가 있어도 좌측부터 최대한 변환(문자빼고리턴)
+  };
+ </script>
+
+ <input type="number" id="num1" placeholder="숫자1">
+ <input type="number" id="num2" placeholder="숫자2">
+ <input type="button" value="합 계산" onclick="test3();">
+ <script>
+/**
+ * #num1 , #num2의 값을 더해서 출력하세요.
+ * 
+ * input태그의 value는 type속성과 관계없이 모두 string(문자열)이다.
+ */ 
+  var test3 = function(){
+   var sum = Number(num1.value) + Number(num2.value);
+   console.log(sum);
+  };
+ </script>
+
+ <h2>NaN | Infinity</h2>
+ <input type="button" value="실행" onclick="test4();">
+ <script>
+   var test4 = function(){
+    console.log(10 / 0); // Infinity
+    console.log(typeof(10 / 0)); // 타입은 number
+    
+    console.log(10 / "a"); // NaN 나옴, "a" 문자열이 NaN으로 치환되어서 NaN이 나옴, NaN과의 연산결과는 모두 NaN이다.
+    console.log(typeof(10 / "a")); // number
+
+    var num = prompt("숫자를 입력하세요");
+    console.log(typeof(num));  // 타입 = string , 사용자가 입력하는값은 기본적으로 타입이 다 string 이다! , 그냥 숫자를 입력해도 "123" 으로 처리됨
+
+    if(isNaN(num)) // num이 숫자가 아니면
+      alert("숫자가 아닙니다.");
+    else
+    alert("숫자입니다.");
+
+   };
+ </script>
+
+ <h2>논리형으로의 형변환</h2>
+ <input type="button" value="실행" onclick="test5();">
+ <script>
+/**
+ * 변수, 리터럴(값)이 boolean형으로 형변환 가능,자동으로 형변환됨
+ * 값이 존재하는 것은 true 치환 : 123, -100, 3.14, "안녕",'ㅋㅋㅋ',new Date()
+ * 값이 존재하지 않는 것은 false 치환 : 0, 0.0 , "",'', undefined, null, NaN
+ */ 
+ var test5 = function(){
+
+ //true
+  console.log(Boolean(123)); 
+  console.log(Boolean(-100));  
+  console.log(Boolean(3.14));   
+  console.log(Boolean("안녕"));  
+  console.log(Boolean('ㅋㅋㅋ')); 
+  console.log(Boolean(new Date())); 
+
+  //false
+  console.log(Boolean(0));
+  console.log(Boolean(0.0));
+  console.log(Boolean(""));
+  console.log(Boolean(undefined));
+  console.log(Boolean(null));
+  console.log(Boolean(NaN));
+
+  var name = prompt("이름을 입력하세요.");
+  // 3가지 경우 나올수 있음
+  //1. "홍길동" 입력후 확인 누른경우 -> name에 "홍길동"이 담김 -> 값이 있으니까 true로 치환됨
+  //2. "" 아무것도 입력안하고 확인 누른경우 ->  "" 빈 문자열이 담김 -> 값 없으니까 false
+  //3. 취소 누른경우 -> null 이 담김. -> 값 없으니까 false
+
+  if(name){//값 있을때 true일때
+    // alert("반갑습니다,[" + name + "] 님~");
+
+    var result = document.querySelector("#result"); // h1에 아이디 result가져옴
+    console.log(result);  // <h1 id="result">반갑습니다,[주연] 님~</h1>
+    
+    // 아이디 result가 존재하는지 여부 확인
+    if(result){  
+      console.log("#result가 존재!");
+      result.innerHTML = "반갑습니다,[" + name + "] 님~";
+    }
+    else {
+      console.log("#result가 존재하지 않음!");
+      document.querySelector("body").innerHTML  // 존재하지 않으면 만들기 위해 코드 추가함
+        += "<h1>반갑습니다, [" + name + "]님~</h1>"; // 기존꺼는 지워지지않고 추가하기위해 복합대입연산자(+=)를 사용했음
+    }
+
+ }
+ else{  // 값없을때, false 일때
+     alert("올바른 이름을 입력하세요.");
+ }
+
+ };
+ </script>
+<h1 id="result"></h1>
+
+</body>
+</html>

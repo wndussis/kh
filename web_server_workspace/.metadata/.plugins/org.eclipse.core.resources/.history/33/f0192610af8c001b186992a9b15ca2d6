@@ -1,0 +1,48 @@
+<%--
+
+	jsp 주석
+	jsp : java + html   -> jsp에서는 둘다 작성가능
+	jsp의 모든 자바코드 <%..%> 는 모두 서버단에서 처리되고, 그 결과만 html에 반영된다.
+	
+--%>
+
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ page import="java.util.Arrays"%>
+<%
+    // jsp scriptlet  여긴 자바공간
+    System.out.println(123);
+	
+	// 사용자 입력값 가져오기
+	// request, response에 선언없이 접근 가능
+	String name = request.getParameter("name");
+	String color = request.getParameter("color");
+	String animal = request.getParameter("animal");
+	String[] foodArr = request.getParameterValues("food");
+	
+	System.out.println("name@jsp = " + name);
+	System.out.println("color@jsp = " + color);
+	System.out.println("animal@jsp = " + animal);
+	System.out.println("foodArr@jsp = " + Arrays.toString(foodArr));
+
+	//저장된 속성 가져오기
+	String recommendation = (String)request.getAttribute("recommendation"); // 형변환 한거임 String으로 
+	System.out.println("recommendation@jsp = " + recommendation);
+		
+ %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>개인취향검사</title>
+</head>
+<body>
+	<h1>개인 취향 검사 결과 jsp</h1>
+	<p><%= name %>의 개인취향 검사 결과는</p>
+	<p><%= color %>색을 좋아합니다.</p>
+	<p>좋아하는 동물은 <%= animal %>입니다.</p>
+	<p>좋아하는 음식은 <%= Arrays.toString(foodArr) %>입니다.</p>  // <> 안에는 세미콜론 찍지않기 ! 
+	<hr>
+	<p class='recommendation'>오늘은<%= recommendation %>어떠세요?</p>  // 이건 서버안에서 생성된 값, 위에 것들은 사용자가 입력한값
+</body>
+</html>

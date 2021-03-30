@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css - text</title>
+</head>
+<body>
+    <h1>Text관련</h1>
+    <p id="sample">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi officia dolore magni nemo suscipit, adipisci eius? Labore vitae dicta consectetur ab ea, incidunt ipsam facilis ducimus, magnam maiores hic! Doloribus?</p>
+    <style>
+        #sample {
+          /* color: darkgreen;
+          color: rgb(0,255,0);
+          color: #00ff00; */
+          color: rgba(0, 255,255, 0.609);
+
+          text-decoration: underline;
+        }
+    </style>
+
+    <h1 id="shadow">그림자</h1>
+    <style>
+    #shadow {
+        /*가로offset  세로offset  번짐  color */
+            text-shadow: 7px 3px 7px darkcyan;
+        }
+    </style>
+
+    <!-- @실습문제 : text-shadow -->
+    <!-- div#bg>span#ts$.common{HTML5}*4 -->
+    <div id="bg">
+        <span id="ts1" class="common">HTML5</span>
+        <br>
+        <span id="ts2" class="common">HTML5</span>
+        <br>
+        <span id="ts3" class="common">HTML5</span>
+        <br>
+        <span id="ts4" class="common">HTML5</span>
+    
+        
+       
+        <!-- 공통적인 부분 #bg 로 빼버림-->
+        <style>
+            #bg {
+             background-color: black;
+            }
+        .common {
+            /* 공통적인 부분 */
+            font-size: 120px;
+            line-height: 100px;
+            font-weight: bold;
+            color: white;
+        }
+
+        #ts1 {
+            color: orangered;
+            text-shadow: 5px 5px 0 orange;
+        }
+        #ts2 {
+            text-shadow: 0 1px 20px #fff;
+        }
+        #ts3 {
+            text-shadow: 1px 1px 20px #6f0; /* #66ff00*/
+        }
+        #ts4 {
+            color: #000;
+            text-shadow: 0 0 4px  #ccc,
+                         0 -5px 4px #ff3 ,
+                         2px -10px 6px #fd3,
+                         -2px -15px 11px #f80,
+                         2px -19px 18px #f20
+                    
+        }
+        </style>
+        
+    </div>
+
+    <hr>
+    <!--  div.wrapper>p>lorem -->
+    <div class="wrapper">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro sint optio ullam nulla. Enim sint, est suscipit alias atque vitae magni odit, excepturi ab soluta natus placeat consequatur deserunt ea.
+    </div>
+    <style>
+        div.wrapper {
+            width: 300px;
+            border: 1px solid #000;
+            white-space: nowrap; /* 줄바꿈 없게 하는것*/
+            overflow: hidden; /* overflow = 부모영역 밖의 자식요소 처리( hidden 은오버플로우 된 내용 안보이게 처리함) */
+            text-overflow: ellipsis; /* ellipsis = 말줄임표(....)로 나옴, 이거 사용할땐 p태그 사용하면 적용안됨*/
+            /* overflow: scroll; */
+        }
+        
+
+    </style>
+    
+
+    
+</body>
+</html>

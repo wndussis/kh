@@ -1,0 +1,1 @@
+package com.collection.list.music.model.vo;

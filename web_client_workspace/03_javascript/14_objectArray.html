@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js - object array</title>
+</head>
+<body>
+  <h1>Object Array</h1>  
+  <h2>객체배열</h2>
+  <input type="button" value="실행" onclick="test1();">
+  <script>
+  function test1(){
+      //배열과 객체를 합침
+     var pets = [
+       {
+         name : '구리구리',
+         breed : '푸들',
+         weight : 4.5
+       },
+       {
+         name : '모카',
+         breed : '포메라니안',
+         weight : 3.5
+       },
+       {
+         name : '우유',
+         breed : '사모예드',
+         weight : 20
+       },
+     ];
+
+     console.log(pets);
+     // for in문 이용해서 이름만 출력하기
+     for(var i in pets){ // 배열 : 변수에는 배열의 인덱스가 대입됨
+        //  console.log(pets[i].name);
+        pets[i].bark = function(){
+           return this.weight > 10  ? '멍멍' : '왈왈'; //삼항연산자
+        };
+        console.log(pets[i].name + "이/가" + pets[i].bark() + "짖는다.");
+     }
+  }
+  </script>
+
+  <h2>생성자 함수</h2>
+  <input type="button" value="실행" onclick="test2();">
+  <script>
+ /**
+  * this용법 4 : 생성자함수안의 this는 현재객체를 가리킨다.
+  * - 생성자함수의 첫글자는 대문자로 작성한다!!!
+  * - new 연산자와 함께 호출해야한다!
+  */ 
+
+function Pet(name, breed, weight){ // 생성자함수 Pet
+  this.name = name;
+  this.breed = breed;
+  this.weight = weight;
+//   this.bark = function(){
+//      return this.weight > 10  ? '멍멍' : '왈왈'; //삼항연산자
+//     };
+}
+
+// Pet의 prototype객체에 중복된 속성/메소드를 작성한다.!!!!!!!!
+pet.prototype.bark = function(){
+     return this.weight > 10  ? '멍멍' : '왈왈'; //삼항연산자
+    };
+
+
+  function test2(){
+   var pets = [
+     new Pet('구리구리','푸들','4.5'),
+     new Pet('모카','포메라니안','3.5'),
+     new Pet('우유','사모예드','20'),
+  ];
+   console.log(pets);
+   for(var i in pets){ // 배열 : 변수에는 배열의 인덱스가 대입됨
+     console.log(pets[i].name + "이/가" + pets[i].bark() + "짖는다.");
+     }
+  }
+  </script>
+</body>
+</html>

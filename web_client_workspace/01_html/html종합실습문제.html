@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        <fieldset>
+            <legend>납품자 정보</legend>
+            <label for="userName">1. 납품자명(필수) :</label>
+            <input type="text" name="userName" id="userName" required />
+            <br><br>
+            <label for="userEmail">2. email(필수) :</label>
+            <input type="text" name="userEmail" id="userEmail" required placeholder="answer@naver.com"/>
+            <br><br>       
+            <label for="homePage">3. 홈페이지 :</label>
+            <input type="text" name="homePage" id="homePage" value="http://">
+            <br><br>
+            <label for="region">4. 지역 :</label>
+            <select name="region">
+              <option value="서울">서울</option>
+              <option value="대구">대구</option>
+              <option value="부산" selected="selected">부산</option>
+              <option value="광주">광주</option>
+            </select>
+        </fieldset>
+    
+
+        <fieldset>
+            <legend>납품 정보</legend>
+            <ul>
+                <li>상품명(필수) : <input type="text" name="productName" id="ProductName" required /></li>
+            </ul>
+            <ul>
+                <li>납품수량(필수) : <input type="text" name="productCount" id="productCount" required placeholder="최소 100" /></li>
+            </ul>
+            <ul>
+                <li>납품등급(필수) :
+                    <input
+                    type="range"
+                    name="productLevel"
+                    id="productLevel"
+                    max="9" 
+                    min="1"> 
+                </li>
+            </ul>
+            <ul>
+                <li>기타사항 : 
+                    <textarea 
+                    name="etc"
+                    id="etc" 
+                    cols="30"
+                    rows="3">
+                    </textarea>
+                </li>
+            </ul>
+        </fieldset>
+        <br>
+        <input type="submit" value="send message">  
+    </form>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css - list</title>
+</head>
+<body>
+    <h1>목록</h1>
+    <nav>
+        <ul id="menu">
+            <li><a href="">html5</a></li>
+            <li><a href="">css3</a></li>
+            <li><a href="">javascript6</a></li>
+            <li><a href="">jquery</a></li>
+            <li><a href="">bootstrap</a></li>
+            <li><a href="">foundation</a></li>
+            
+        </ul>
+    </nav>
+        
+    <style>
+     nav {
+    height: 25px;
+    background-color: greenyellow;
+    padding: 5px 0;
+  }
+  ul#menu {
+    list-style-type : none;
+    padding-left : 0px; /* 공백없이 왼쪽으로 붙음*/
+    width: 450px;
+    margin: 0 auto;
+  }
+  ul#menu li {
+    float: left;  /* 떠서 왼쪽으로 붙음*/
+    margin-right : 15px;
+  }
+  ul#menu li:hover {
+    border-bottom : 4px solid lightslategray;
+    text-shadow : 2px 2px 3px lightgray;
+  } 
+  ul#menu a {
+    text-decoration: none;
+  }
+    </style>
+
+
+</body>
+</html>

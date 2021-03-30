@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>img</title>
+    <style>
+        img {
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+    <h1>이미지관련</h1>
+    <img src="sample/image/flower1.PNG" alt="꽃사진" />  <!--상대주소-->
+    <img src="https://t1.daumcdn.net/cfile/tistory/99BCFE485AC5F33602" alt="봄꽃"> <!--절대주소-->
+    
+    <hr>
+    <h2>절대값 | 상대값</h2>
+    <div>
+      <!--px픽셀 절대값이므로, 화면(viewport)가 변해도 너비/높이가 변하지 않는다.-->
+        <img src="sample/image/flower1.PNG" style="width: 250px"/>
+        <img src="sample/image/flower2.PNG" style="width: 250px"/>
+        <img src="sample/image/flower3.PNG" style="width: 250px"/>
+        <img src="sample/image/flower4.PNG" style="width: 250px"/>
+    </div>
+    <hr>
+    <div>
+        <!-- %는 상대값이므로, 화면(viewport)대비 너비/높이값이 변한다.-->
+          <img src="sample/image/flower1.PNG" style="width: 23%"/>
+          <img src="sample/image/flower2.PNG" style="width: 23%"/>
+          <img src="sample/image/flower3.PNG" style="width: 23%"/>
+          <img src="sample/image/flower4.PNG" style="width: 23%"/>
+    </div>
+
+    <h2>이미지링크</h2> <!-- 타이거사진 누르면 와삼스쿨 페이지로 이동함-->
+    <a href="http://w3schools.com" title="와삼스쿨로 이동하기">
+        <img src="sample/image/tiger.jpg" alt="타이거사진">
+     </a>
+
+     <h3>image map</h3>
+      <img src="sample/image/river1.PNG" style="width: 500px;" alt ="두물머리사진" usemap="#mymap">
+      <map name="mymap">
+          <!-- shape = rect | circle | poly -->
+          <area shape="rect" coords="0,0,250,333" href="http://google.com" alt="구글이동">
+          <area shape="rect" coords="250,0,500,333" href="http://naver.com" alt="네이버이동">
+      </map>
+
+      <h2>이미지배치</h2>
+      <!-- div>img+p>lorem*10 -->
+      <div>
+          <img src="sample/image/river2.PNG" style="float: right;">
+          <p><span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum fuga doloremque officia consequatur hic dicta nulla magnam placeat, dolore exercitationem debitis facere impedit quo expedita in nisi quasi quis assumenda?</span><span>Magnam rerum quisquam dolorem minus natus blanditiis, doloremque provident! Quidem, cum odio minus provident maiores earum velit! Eveniet molestias et, facere quas incidunt quisquam nesciunt, sint totam asperiores adipisci error?</span><span>Et debitis esse alias aut fuga! In molestias dicta porro? Velit hic saepe, aperiam aspernatur ab minima debitis fugit nulla, nam minus tenetur nihil sunt eaque totam quam consequuntur deserunt!</span><span>Nesciunt cumque unde sint labore dolor necessitatibus nostrum sapiente iste quos tempore rerum beatae, aut voluptate recusandae temporibus, id quam provident eum ducimus reiciendis molestiae nulla numquam! Veritatis, officia ipsa?</span><span>Aut facilis dicta, maxime repellat odio possimus aperiam officia quam vero. Quas, repudiandae dolorem corrupti deleniti asperiores provident quis quasi incidunt aliquam omnis perspiciatis sapiente dicta architecto mollitia odit facilis!</span><span>Earum nisi commodi sint perspiciatis magni labore, quis eaque velit? Voluptate facilis eveniet illum nostrum maiores esse neque placeat deleniti ipsum, aut dicta ullam velit officiis delectus repellendus quos perspiciatis!</span><span>Nam quaerat sequi soluta similique autem dolorum delectus, molestias deleniti consequuntur repudiandae, ipsam laboriosam eveniet optio a blanditiis aliquid illo! Nesciunt mollitia iusto eveniet eligendi repellat modi quae beatae facilis.</span><span>Quia aliquid vero tempore hic. Incidunt vero quasi atque iure ducimus eaque enim repellat aperiam accusantium necessitatibus pariatur officiis rem tempore quaerat quisquam consectetur, qui sed, consequatur deleniti saepe soluta!</span><span>Earum provident accusamus voluptatem cum asperiores. Necessitatibus ad aliquam, architecto officia debitis quas, hic sint voluptas impedit voluptatum rem iste, ipsa quis accusantium molestias qui. Voluptatem similique molestias accusantium facilis.</span><span>Aliquam, quibusdam earum consectetur laudantium delectus nemo, ratione, distinctio perferendis ex deserunt veritatis itaque incidunt accusantium iure! Qui vitae facere magni nostrum? Cupiditate, iure iste? Laboriosam reiciendis suscipit iusto voluptatum!</span></p>
+      </div>
+
+      <div>
+        <img src="sample/image/river2.PNG" style="float: left;">
+        <p><span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum fuga doloremque officia consequatur hic dicta nulla magnam placeat, dolore exercitationem debitis facere impedit quo expedita in nisi quasi quis assumenda?</span><span>Magnam rerum quisquam dolorem minus natus blanditiis, doloremque provident! Quidem, cum odio minus provident maiores earum velit! Eveniet molestias et, facere quas incidunt quisquam nesciunt, sint totam asperiores adipisci error?</span><span>Et debitis esse alias aut fuga! In molestias dicta porro? Velit hic saepe, aperiam aspernatur ab minima debitis fugit nulla, nam minus tenetur nihil sunt eaque totam quam consequuntur deserunt!</span><span>Nesciunt cumque unde sint labore dolor necessitatibus nostrum sapiente iste quos tempore rerum beatae, aut voluptate recusandae temporibus, id quam provident eum ducimus reiciendis molestiae nulla numquam! Veritatis, officia ipsa?</span><span>Aut facilis dicta, maxime repellat odio possimus aperiam officia quam vero. Quas, repudiandae dolorem corrupti deleniti asperiores provident quis quasi incidunt aliquam omnis perspiciatis sapiente dicta architecto mollitia odit facilis!</span><span>Earum nisi commodi sint perspiciatis magni labore, quis eaque velit? Voluptate facilis eveniet illum nostrum maiores esse neque placeat deleniti ipsum, aut dicta ullam velit officiis delectus repellendus quos perspiciatis!</span><span>Nam quaerat sequi soluta similique autem dolorum delectus, molestias deleniti consequuntur repudiandae, ipsam laboriosam eveniet optio a blanditiis aliquid illo! Nesciunt mollitia iusto eveniet eligendi repellat modi quae beatae facilis.</span><span>Quia aliquid vero tempore hic. Incidunt vero quasi atque iure ducimus eaque enim repellat aperiam accusantium necessitatibus pariatur officiis rem tempore quaerat quisquam consectetur, qui sed, consequatur deleniti saepe soluta!</span><span>Earum provident accusamus voluptatem cum asperiores. Necessitatibus ad aliquam, architecto officia debitis quas, hic sint voluptas impedit voluptatum rem iste, ipsa quis accusantium molestias qui. Voluptatem similique molestias accusantium facilis.</span><span>Aliquam, quibusdam earum consectetur laudantium delectus nemo, ratione, distinctio perferendis ex deserunt veritatis itaque incidunt accusantium iure! Qui vitae facere magni nostrum? Cupiditate, iure iste? Laboriosam reiciendis suscipit iusto voluptatum!</span></p>
+    </div>
+
+
+
+</body>
+</html>

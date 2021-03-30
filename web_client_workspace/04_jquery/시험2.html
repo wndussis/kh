@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+ table {
+      border: 1px solid #000;
+      border-collapse: separate;
+      
+    }
+
+    th,td {
+        border: 1px solid black; 
+        padding: 5px; 
+    }
+</style>
+</head>
+<body>
+    <table>
+        <thead>
+          <tr>
+            <th>번호</th>
+            <th>제목</th>
+            <th>작성자</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>  
+            <td>첫 번째 게시물 입니다</td>  
+            <td>홍길동</td> 
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>두 번째 게시물 입니다</td>
+            <td>홍길동</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>세 번째 게시물 입니다</td>
+            <td>홍길동</td>
+          </tr>
+        </tbody>
+    </table>
+    <div>선택한 게시물 :
+     <span></span>
+    </div>
+
+    <script>
+        function add(){
+            var number = $("input:eq(0)").val();
+            var content = $("input:eq(1)").val();
+            var writer = $("input:eq(2)").val();
+            $("tr").last().after("<tr><td>"+number+"</td>"+"<td>"+content+"</td>"+"<td>"+writer+"</td></tr>");
+            $("input:text").val('');
+        }
+        </script>
+    
+    번호 : <input type="text" name="number" /> <br />
+    내용 : <input type="text" name="content" /><br />
+    작성자 : <input type="text" name="writer" /><br /> <br>
+    <!-- <input type="button" value="테이블에 추가" onclick="add()" /> <br><br>
+    <table border="1">
+        <tr>
+            <td> 제목 </td>
+            <td> 내용 </td>
+            <td> 작성자 </td>
+        </tr>
+    </table> -->
+    
+</body>
+</html>

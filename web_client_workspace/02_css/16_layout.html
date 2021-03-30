@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css- layout </title>
+    <style>
+        div {
+          padding: 10px;
+        }
+        #container {
+            background-color: cornsilk;
+            width: 960px;
+            margin: 0 auto;
+        }
+        #header {
+            background-color: darkslateblue;
+            height: 100px;
+        }
+        #content {
+            background-color:forestgreen;
+            width: 640px;
+            height: 400px;
+            float: left;
+        }
+        #sideinfo {
+            background-color:lime;
+            width: 280px;
+            height: 400px;
+            float: left;
+        }
+        #footer {
+            clear: both;  /* 위에서 float을 사용했기때문에 다음요소가 밀려들어가지않게 float을 끝내는 clear 속성 사용해야함 !!!*/
+            background-color: #555;
+            height: 100px;
+        }     
+    </style>
+</head>
+<body>
+ <!-- html5 이전의 페이지 레이아웃 -->
+ <div id="container">
+    <div id="header">Header</div>
+    <div id="content">Content</div>
+    <div id="sideinfo">Side info</div>
+    <div id="footer">Footer</div>
+ </div>
+    
+</body>
+</html>

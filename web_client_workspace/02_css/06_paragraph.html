@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css - paragraph</title>
+</head>
+<body>
+    <h1>문단</h1>
+    <!-- div.wrapper -->
+    <div class="wrapper">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi aut sint, nam cum adipisci ut earum nulla asperiores, vel fuga voluptatibus consectetur veritatis? Iusto repudiandae aliquam fugiat sint beatae quaerat?</p>
+        <p>Velit, sint qui tenetur quidem autem nam animi ullam libero itaque ab perferendis explicabo nostrum? Provident molestiae et suscipit necessitatibus aperiam magni distinctio asperiores assumenda! Iste nesciunt dolorum veritatis eos!</p>
+        <p>Hic quis qui voluptatem iste voluptas. Nihil, vel porro suscipit saepe est sint pariatur expedita in. Ad ea impedit nam, vitae ipsam cum soluta repellendus excepturi, dolores, libero alias laboriosam!</p>
+        <p>Maiores magnam, sed neque labore, dicta eligendi provident, soluta quasi nostrum consequatur veniam. Culpa quam aut dolor rem asperiores, magnam, dolorem ullam vitae itaque possimus minus magni vero reiciendis odio?</p>
+        <p>Magnam nostrum necessitatibus quod hic cumque quae, libero voluptas illo officiis unde, assumenda explicabo adipisci qui vero corrupti odit vel fuga cum atque officia iure mollitia. Expedita adipisci velit officia.</p>
+    </div>
+    <style>
+        .wrapper p::first-letter {
+          font-size : 2em;
+        }
+        /* .wrapper p::first-line {
+          text-decoration: underline;
+        } */
+      
+        /* .wrapper p::before {
+          content : "😊";
+        } */
+        /* .wrapper p::after {
+          content : "👀";
+        } */
+      
+        /* 카운터 */
+        /* 부모요소에서 counter 선언 */
+        .wrapper {
+          counter-reset : num;
+        }
+        .wrapper p::before {
+          counter-increment : num;
+          content : counter(num)" "; /* content : 안에는 태그는 못넣음. */
+        }
+      
+        ::selection {
+          background-color: thistle;
+          color: #fff;
+        }
+      
+      
+      
+      
+        </style>
+    
+</body>
+</html>

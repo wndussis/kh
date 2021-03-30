@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="ko">
+ <head>
+  <meta charset="UTF-8">
+  <title>갤러리 만들기</title>
+  <style>
+   #gallery {
+       background-color: rgb(39, 35, 35);
+       width: 500px;
+       height: 300px;
+	   margin: -19px auto;
+	   padding: 16px;
+	   border: 14px solid black;
+	   text-align: center;
+
+
+       
+   }
+   ul {
+	 list-style: none;
+	 padding: 0px;
+	 margin: 10px;
+
+   }
+
+   li {
+	display: inline-block;
+	position:relative;
+   }
+   .small {
+	   z-index: 0;
+	
+   }
+   .pic {
+	position:absolute;
+	visibility: hidden;
+	width: 400px;
+	height: 300px;
+   }
+   .small:hover + * {
+	border: 3px solid black;
+	visibility: visible;
+	z-index: 1;
+	left: 100px;
+	top: 70px;
+   }
+
+
+  </style>
+ </head>
+ <body>
+  <h2>사진 갤러리 만들기</h2>
+  <hr/>s
+  <div id="gallery">
+	  <ul>
+		  <li> 
+			  <img src="image/flower1.png" class="small" width="120" height="90"> 
+			  <img src="image/flower1.png" class="pic"> 
+		  </li>
+		  <li>
+			  <img src="image/flower2.png" class="small" width="120" height="90"> 
+			  <img src="image/flower2.png" class="pic"> 
+		  </li>
+		  <li>
+			  <img src="image/flower3.png" class="small" width="120" height="90"> 
+			  <img src="image/flower3.png" class="pic"> 
+		  </li>
+		  <li>
+			  <img src="image/flower4.png" class="small" width="120" height="90"> 
+			  <img src="image/flower4.png" class="pic"> 
+		  </li>
+		  <li>
+			  <img src="image/flower5.png" class="small" width="120" height="90">
+			  <img src="image/flower5.png" class="pic"> 
+		  </li>
+		  <li>
+			  <img src="image/forest1.png" class="small" width="120" height="90">
+			  <img src="image/forest1.png" class="pic"> 
+		  </li>
+	  </ul>
+      
+  </div>
+ </body>
+</html>

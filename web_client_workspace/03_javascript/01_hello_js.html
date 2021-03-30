@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hello - js</title>
+    <script src="js/sample.js"></script> <!--이 스크립트는 여기있습니다 라고 알려주는것, 외부에서 작성한거 연결하는것-->
+    <script>
+        // script작성 best position 1  -> head 태그 안
+        /* */
+    //  alert('나를 실행하고 지나가라~');
+    </script>
+</head>
+<body>
+  <h1>Hello Javascript</h1>
+  <h2>javascript를 사용하는 3가지 방법</h2>
+  <!-- 태그의 inline 이벤트속성 작성 -->
+   <input type="button" value="실행1" onclick="alert('안녕~나 쟈스야!'); console.log('안녕~여기도 쟈스야');">
+
+   <!-- 내부 script태그를 작성 -->
+   <input type="button" value="실행2" onclick="foo();"> <!-- onclick 이용해서 실행2 버튼을 누르면 foo()함수가 실행되게 만듬-->
+   <!-- 외부 script작성 , 외부에 js폴더 만들어서 했음 여기선-->
+   <input type="button" value="실행3" onclick="bar();">
+
+
+
+
+
+
+
+    <script>
+      //script best position2 -> body tag안 종료 직전
+    //alert('html태그를 모두 해석하고, 그 다음에 나를 실행한다.');
+
+    /**
+     * 함수 선언
+     */
+    function foo(){  
+        alert('foo를 호출 !!!');
+    }
+    //함수 호출: 선언만 해서는 실행되지 않는다 !
+    foo();
+
+   
+    </script>
+    
+</body>
+</html>

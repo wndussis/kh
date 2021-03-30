@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>table</title>
+
+    <style>
+    /*css작성*/
+    table {
+      border: 1px solid black; /*두께, 선종류, 선 색*/
+      border-collapse: collapse;
+    }
+    /*여러개는 콤마 사용해서 나열가능*/
+    th,td {
+        border: 1px solid black; /*경게선*/
+        padding: 5px; /*여백*/
+    }
+    </style>
+</head>
+<body>
+  <h1>table</h1>  
+   <!--
+     table 테이블 관련 최상위태그
+         thead | tbody | tfoot 행타입태그
+            tr 행 태그
+             th 제목 셀
+             td 내용 셀
+   -->
+   <table>
+    <thead>
+      <tr>
+        <th>브라우져명</th>
+        <th>제조사</th>
+        <th>홈페이지</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>크롬</td>  <!-- 브라우져명-->
+        <td>구글</td>  <!--제조사-->
+        <td><a href="http://google.com">http://google.com</a></td> <!--홈페이지-->
+      </tr>
+      <tr>
+        <td>사파리</td>
+        <td>애플</td>
+        <td><a href="http://apple.com">http://apple.com</a></td>
+      </tr>
+      <tr>
+        <td>파이어폭스</td>
+        <td>모질라</td>
+        <td><a href="http://mozilla.org">http://mozilla.org</a></td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td>총개수</td>
+        <td colspan="2">3</td>
+      </tr>
+    </tfoot>
+  </table>
+
+  <hr>
+
+  <table>
+    <tr>
+      <th colspan="4">이력서</th>
+    </tr>
+    <tr>
+      <td colspan="2" rowspan="2" style="width:130px; height:150px;">사진</td> <!-- 2행 2열 -->
+      <td style="width: 80px;">이름</td>
+      <td style="width: 200px;"></td>
+    </tr>
+    <tr>
+      <td>연락처</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td style="width: 70px; height: 50px;">주소</td>
+      <td colspan="3"></td>
+    </tr>
+    <tr>
+      <td style="height: 100px;">자기소개</td>
+      <td colspan="3"></td>
+    </tr>
+
+  </table>
+
+</body>
+</html>

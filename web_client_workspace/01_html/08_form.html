@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form</title>
+</head>
+<body>
+    <h1>form관련</h1>
+    <!--
+        action : 폼이 제출될 server측 주소 적는 속성, 미작성시 현재주소로 제출됨.
+        method : GET(기본값)  | POST
+        1. GET http://127.0.0.1:5500/08_form.html?userEmail=wndussis77%40naver.com 
+        url에 덧붙여 전송한다
+
+        2.POST  http 메세지 body영역에 작성, url에 노출되지 않는다.
+
+        *input태그의 name속성이 제출되는 key값이다.
+        *name속성이 없으면 제출되지 않는다.
+    -->
+    <form
+     action=""
+     method="GET">
+     <label for="userEmail">이메일</label>  <!-- label 에 for값userEmail과 아래input안에 name 값이 동일해야함 그래서 name값도 userEmail 이다.-->
+     <input type="text" name="userEmail" id="userEmail"> <!-- name속성이 없으면 아예 제출되지않음.꼭 써줘야함-->
+     <br>
+     <label for="userName">이름</label>
+     <input type="text name="user-name" id="userName">
+     <br>
+     <input type="submit" value="제출"> <!-- 버튼 , form제출하는 용도 -->
+    
+    </form>
+
+    <h2>text관련</h2>
+    <form action="">
+        <!-- form 하위에서 grouping 목적-->
+        <fieldset>
+            <!-- 한줄짜리 사용자입력을 처리-->
+            <legend>회원정보</legend>
+            <input 
+            type="text"
+            name="memberName" 
+            id="memberName"
+            placeholder="회원명"
+            value="홍길동"
+            readonly
+            required> <!-- 속성명과 속성값이 같으면,  속성명> 이렇게 쓴다 ex) required> , required속성은 필수라는뜻 내용을 안쓰면 제출안됨. -->
+            <!-- readonly 사용하면 수정불가-->
+            <br>
+            <input 
+            type="password"
+            name="memberPwd" 
+            id="memberPwd"
+            maxlength="8">
+        </fieldset>
+
+        <fieldset>
+            <legend>기타정보</legend>
+            <input type="search" name="searchKeyword" id="searchKeyword" placeholder="검색어를 입력하세요.">
+            <br><br>
+            <!-- 이메일 형식 검사 , @포함여부 이런것들, 완벽하진않음-->
+            <input type="email" name="memberEmail" id="memberEmail">
+            <br><br>
+            <!-- url 형식 검사-->
+            <input type="url" name="memberHomepage" id="memberHomepage">
+            <br><br>
+            <!--핸드폰에서 숫자키보드를 제공 -->
+            <input type="tel" name="memberTel" id="memberTel" value="010-0303-0302">
+        </fieldset>
+
+        <fieldset>
+            <legend>자기소개</legend>
+            <!--여러줄 입력 가능-->
+            <textarea 
+             name="selfIntroduce"
+             id="selfIntroduce" 
+             cols="30"
+             rows="10"
+             style="resize: none;"> 안녕
+             사용자입력</textarea>
+
+        </fieldset>
+    
+        
+            <!-- 1.input 태그로 만들수 있는 버튼 3종류 -->
+            <!---
+            <input type="submit" value="제출 버튼">
+            <input type="reset" value="초기화 버튼(기본값이 있으면 기본값으로 돌아가고,초기값이 없다면 정말 초기화됨 값이 없어짐">
+            <input type="button" value="그냥 버튼">
+            -->
+            <!-- 2. button 태그로 버튼 만들기, type 속성을 반드시 작성해야한다 !!!,
+             type = "submit" 이 기본값-->
+            <button type="submit">제출</button>
+            <button type="reset">초기화</button>
+            <button type="button">그냥버튼</button>
+        </form>
+
+        
+        <h2>숫자관련</h2>
+        <form action="">
+            <fieldset>
+                <legend>숫자</legend>
+                <input
+                  type="number"
+                  name="point" 
+                  id="point"
+                  max="100"
+                  min="0"
+                  step="5"
+                  style="width: 100px;">
+                  <br><br>
+                <!--input:range[max=100][min]-->
+                <input
+                 type="range"
+                 name="userAmount"
+                 id="userAmount"
+                 max="100" 
+                 min="1">
+            </fieldset>
+            <button type="submit">제출</button>
+        </form>
+
+        <!--2월 23일 수업-->
+        <h2>날짜/시간관련</h2>
+        <form action="">
+            <fieldset>
+                <legend>날짜</legend>
+                <label for="birthday">생일</label>
+                <input type="date" name="birthday" id="birthday" value="2020-01-01">
+                <br>
+                <label for="reservation">예약</label>
+                <input type="time" name="reservation" id="reservation" value="21:30">
+                <br>
+                <label for="kakao-reserv">카카오 미용실 예약</label>
+                <input type="datetime-local" name="kakao-reserv" id="kakao-reserv"
+                 value="2020-01-01T13:30">
+                 <!--날짜/시간 표준 포맷 iso-8601 -> yyyy-mm-ddThh:mi  이런형식-->
+            </fieldset>
+            
+        
+            <input type="submit" value="제출">
+        </form>
+        <h2>선택관련</h2>
+        <form action="">
+            <fieldset>
+                <legend>라디오</legend>
+                <input type="radio" name="gender" id="gender-male" value="m"> <!-- value가 최종적으로 전송될값.-->
+                <label for="gender-male">남</label>
+                <input type="radio" name="gender" id="gerder-female" value="f" checked>
+                <label for="gender-female">여</label>
+            </fieldset>
+            
+            <fieldset>
+                <legend>체크박스</legend>
+                <input type="checkbox" name="hobby" id="hobby-music" value="music" checked> <!--checked 속성 사용하면 기본값처럼 미리 그값이 선택되어있음-->
+                <label for="hobby-music">음악감상</label>
+                <input type="checkbox" name="hobby" id="hobby-game" value="game">
+                <label for="hobby-game">게임</label>
+                <input type="checkbox" name="hobby" id="hobby-fitness" value="fitness">
+                <label for="hobby-fitness">운동</label>
+                <br>
+                <label for="mailOk">메일수신</label>
+                <input type="checkbox" name="mailOk" id="mailOk">
+                <!-- value 속성이 없다면, 체크시에 "on"값이 전송된다.(on 이라고 전송된다는 뜻.)-->
+            </fieldset>
+
+            <fieldset>
+                <legend>select</legend>
+                <label for="nation">국적 : </label>
+                <select name="nation" id="nation" multiple>
+                    <optgroup label="America">
+                    <option value="usa" selected>미국</option>
+                    </optgroup>
+                    <optgroup label="Asia">
+                    <option value="kor">한국</option>
+                    <option value="jap">일본</option>
+                    <option value="chn">중국</option>
+                    </optgroup>
+                </select>
+                <br>
+
+                <label for="menu">메뉴 선택</label>
+            <!-- datalist : select + input:text -->
+            <input type="text" name="menu" id="menu" list="menu-list">
+            <datalist id="menu-list">
+                <option value="된장찌게">된장찌게</option>
+                <option value="김치찌게">김치찌게</option>
+                <option value="순두부찌게">순두부찌게</option>
+            </datalist>
+            </fieldset>
+            <input type="submit" value="제출">
+        </form>
+        <h2>기타</h2>
+        <form action="">
+            <fieldset>
+                <legend>기타</legend>
+                <label for="userColor">컬러 : </label>
+                <!-- input:color#userColor -->
+                <input type="color" name="userColor" id="userColor" value="#2f6893">
+
+                <br>
+                <label for="upFile">파일업로드 : </label>
+                <!-- input:file#upFile[name=upfile]-->
+                <input type="file" name="upfile" id="upFile">
+
+                <br>
+                <input type="hidden" name="notVisible" value="저는안보이지만,전송은 됩니다.">
+                <!-- disabled 사용하면 전송이 안된다.-->
+                <input type="text" name="userId" id="userId" value="honggd" disabled>
+            </fieldset>
+
+            <input type="submit" value="전송">
+        </form>
+        
+
+        
+</body>
+</html>

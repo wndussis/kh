@@ -1,0 +1,4 @@
+127.0.0.1 - - [24/Mar/2021:17:20:02 +0900] "GET / HTTP/1.1" 404 751
+0:0:0:0:0:0:0:1 - - [24/Mar/2021:18:12:11 +0900] "GET /web/servlet/testPerson1.html HTTP/1.1" 200 1914
+0:0:0:0:0:0:0:1 - - [24/Mar/2021:18:12:11 +0900] "GET /favicon.ico HTTP/1.1" 404 803
+0:0:0:0:0:0:0:1 - - [24/Mar/2021:18:12:28 +0900] "GET /web/testPerson1.do?name=%EA%B9%80%EC%A3%BC%EC%97%B0&color=%EB%B9%A8%EA%B0%95&animal=%EA%B0%95%EC%95%84%EC%A7%80&food=%EC%A7%9C%EC%9E%A5%EB%A9%B4 HTTP/1.1" 200 346

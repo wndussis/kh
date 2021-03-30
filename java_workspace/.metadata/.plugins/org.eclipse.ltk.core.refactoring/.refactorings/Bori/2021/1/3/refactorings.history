@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;book.CenterPanel&apos; to &apos;Switch&apos;&#x0D;&#x0A;- Original project: &apos;Bori&apos;&#x0D;&#x0A;- Original element: &apos;book.CenterPanel&apos;&#x0D;&#x0A;- Renamed element: &apos;book.Switch&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;CenterPanel&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;book{CenterPanel.java[CenterPanel" matchStrategy="1" name="Switch" qualified="false" references="true" similarDeclarations="false" stamp="1610621888596" textual="false" version="1.0"/>
+</session>

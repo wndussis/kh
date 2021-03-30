@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js - variable | scope</title>
+</head>
+<body>
+    <h1>Variable | Scope</h1>
+    <input type="button" value="전역 | 지역" onclick="test1();">  <!-- test1();  test1 호출한것-->
+    <input type="button" value="scope" onclick="test2();">
+    <input type="button" value="scope 개선" onclick="test3();">
+    <script>
+    //함수 밖 script태그에 작성된 var변수는 전역변수로 등록된다!!!!!!!!!!
+    //전역변수는 최상위 객체 window의 속성으로 등록된다. 다 window에 포함되어있다
+      var a;
+      a = 100; // 값이 대입될때 변수의 타입이 결정됨. window에 a 라는 속성(window.a)이 생기고 100이라는 값이 할당된것.
+
+      /**
+       * 함수안에 선언된 변수 var는 지역변수로 등록된다.
+       * 지역변수는 함수 밖에서는 절대 접근할 수 없다!!!
+       * 함수 실행이 끝나면 메모리에서 날라가기때문에  접근불가능하다.
+       * 전역변수는 함수안에서 접근 가능하다
+       * 변수명이 같을때는 가까운게 우선순위이다!!!. 가까운 변수의값이 출력됨
+       */ 
+      function test1(){
+        var a = "아";
+        var a = true; //중복 선언이 가능 하지만 이렇게 사용하지말것.변수명은 겹치면 안됨.
+        var b = 123;
+        console.log("a = " + a);
+        console.log("b = " + b);
+        console.log("전역변수 a = " + window.a);  // window.a 는 전역변수a 를 가리킨다.
+        // this용법2 - 일반함수안에서 this는 window객체를 가리킨다.
+        console.log("전역변수 a = " +this.a);   // this.a 는 전역변수a를 가리킨다, 전역변수가 window의 속성으로 등록되어있기때문에 가져올수있다.
+
+        // var 없이 써도 오류가 안나지만, 함수안에 썼는데도 전역변수로 등록되어버림
+        c = 'ㅋㅋㅋ'; 
+        console.log("c = " + c);
+        
+      }
+      /**
+       * scope = 유효범위
+       * c-family언어가 가진 block scope가 아닌,
+       * javascript에서는 function scope를 가진다.
+       */ 
+      function test2(){
+        var x = 10;
+
+        if(true){  // 자바 에서는 블럭 안에서 선언한 변수는 블럭이 끝날때 소멸하기때문에 블럭 안에서만 유효하다.
+          var x = 100; // 자바스크립트는 그렇지 않다. 함수 안이면 다 같은범위로 본다, 블럭은 의미없음
+        }
+
+        console.log(x);  // 값은 100이 나옴
+
+        for(var i = 0; i < 10; i++){
+        
+        }
+        console.log(i); // 10 나옴
+
+      }
+      //함수밖은 다 전역변수다.
+      var k = 123.456;
+
+      if(true){
+        var k = 456.789;
+      }
+      console.log(k); // window.k 로 등록되어있다.
+
+      /**
+       * use strict 엄격모드 지원
+       * 
+       * ES6 에서 지원
+       * let -  block scope를 가진 변수 키워드
+       * const - block scope를 가진 상수 키워드
+       * 
+       */ 
+      function test3(){
+        // "use strict";
+        // foo = 100;
+        // console.log(foo);
+
+        // let foo = 100;
+        // let foo = 200;  //Uncaught SyntaxError: Identifier 'foo' has already been declared
+        
+        const bar = '상수';
+        // bar = '변수냐'; //Uncaught TypeError: Assignment to constant variable.
+    }
+
+    </script>
+
+</body>
+</html>

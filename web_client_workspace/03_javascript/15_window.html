@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js - window</title>
+    <style>
+    #clock {
+       font-size: 3em;
+       text-shadow: 3px 3px 7px #000;
+    }
+    #countdown {
+        border: 3px solid #000;
+        font-size: 30em;
+        padding: 10px;
+        text-align: center;  
+        display: none;
+    }
+    </style>
+</head>
+<body onload = "test5();"> <!-- 페이지가 로딩되면 test5 가 실행됨-->
+<h1>Window</h1> 
+<h2>웹페이지 구조</h2>
+<img src="images/windowObjects.png" alt="">
+<h2>Method</h2>
+<input type="button" value="open" onclick="test1();">
+<input type="button" value="팝업 닫기" onclick="test2();">
+<input type="button" value="setTimeout" onclick="test3();">
+<input type="button" value="실습문제" onclick="test4();">
+<input type="button" value="setInterver" onclick="test5();">
+<input type="button" value="countdown" onclick="test6();">
+<hr>
+<div id="clock"></div>
+<div id="countdown"></div>
+<script>
+function test6(){
+ var cnt = 10;
+ var cd = document.querySelector("#countdown");
+ cd.style.display = "block";
+
+ var f = function(){
+     cd.innerText = cnt--;
+     
+     if(cnt < 0){ // -1,-2 ... 이렇게 계속 안떨어지게끔 하기위해
+       clearInterval(intervalId);
+       cd.innerText = "펑!";
+     }
+   };
+ f();
+ var intervalId = setInterval(f,1000);
+ console.log(intervalId);
+
+
+}
+/**
+ * setInterval(callbackFunction, millis)
+ * millis초마다 callbackFunction을 실행
+ */ 
+function test5(){
+//  var num = 1;
+//  setInterval(function(){
+//    console.log(num++); //1초마다 1 2 3 4 5 .... 실행됨
+//  },1000);
+
+// 시계 만들기
+var foo = function(){
+    var now = new Date();
+    var strFormat = getTimeFormatStr(now);
+    document.querySelector('#clock').innerHTML = strFormat;
+  };
+  foo();
+
+    setInterval(foo,1000);
+
+}
+
+function getTimeFormatStr(time){
+    var f = function(n){
+        return n >= 10 ? n : "0" + n;
+    };
+    var hh = f(time.getHours());
+    var mi = f(time.getMinutes());
+    var ss = f(time.getSeconds());
+    return hh + ":" + mi + ":" + ss;
+}
+/**
+ * 팝업창을 열고, <h1>3초 팝업</h1>을 작성.
+ * 3초이후에 자동으로 창이 닫히도록 하세요.
+ * open("", "","spec")
+ */ 
+function test4(){
+var tap = open("","popup","width=600, height=600,top=200");
+tap.document.write("<h1>3초 팝업<\h1>");
+
+setTimeout(function(){
+    tap && tap.close(); // tap && 유효성 검사 한것.
+},3000); 
+    
+}
+/**
+ * setTimeout(callbackFunction, millis);
+ * millis(밀리초)이후에 callbackFunction을 실행
+ * 동기적 : 코드처리가 위에서부터 아래로, 좌에서 우로 처리되는것
+ * timeoutAPI의 메소드는 비동기적으로 처리된다.
+ * 
+ */ 
+function test3(){
+ setTimeout(function(){
+    alert("반갑습니다.");
+ }, 3000);  // 3000 = 3초 뜻함, 밀리초 라서
+
+ alert("안녕"); // 안녕 이 먼저나옴
+}
+/**
+ * open = 새로운 window생성하는 메소드
+ * - 새탭
+ * - 팝업창
+ * 
+ * 문법
+ * open(url, name, specs)
+ * - specs 문자열 적으면 팝업창으로 만들어짐
+ * - name : 팝업창이름, _self로 입력하면 새로안만들어지고 현재창에서 열림
+ */
+var w; //팝업윈도우객체
+function  test1(){
+// w 객체는 원래 윈도우창 말고 새로만들어진 팝업창을 가르킨다.
+// newWindow = name
+ w =  open("13_object.html", "newWindow", "width = 800, height = 300, top=300, left=300");
+ console.log(w); //팝업창의 윈도우 객체 정보 출력
+ console.log(window == w);
+ // 1초 이후 실행
+ setTimeout(function(){
+     w.alert('hello js~'); //팝업창에서 alert
+ }, 1000);
+}
+
+function test2(){
+ w.close(); // 팝업창 닫기
+}
+</script>
+
+<h2>BOM</h2>
+<h2>Browser Object Model</h2>
+<input type="button" value="navigator" onclick="test7();">
+<input type="button" value="location" onclick="test8();">
+<input type="button" value="history" onclick="test9();">
+<input type="button" value="screen" onclick="test10();">
+<script>
+/**
+ * screen : 모니터 관련 정보를 가진 객체
+ * - width
+ * - height
+ * - availWidth (가용너비)
+ * - availHeight (가용높이) , 작업줄 뺀 높이
+ */
+function test10(){
+  console.log(screen);
+  var w = 300;
+  var h = 300;
+  var left = (screen.availWidth - w) / 2;
+  var top = (screen.availHeight - h) / 2;
+
+  open("", "popup","width=300, height=300, left=" + left + ", top=" + top);
+}
+/**
+ * history : 방문기록관련 정보를 가진 객체
+ * 
+ * back() : 뒤로가기
+ * forward() :  앞으로 가기
+ * go(n) : 1 | 0 | -1 ,  go(0) = 새로고침
+ */
+function test9(){
+  console.log(history);
+}
+/**
+ * location : 주소창 관련 정보를 가진 객체
+ */
+function test8(){
+  console.log(location);
+
+  // 페이지 새로고침
+//   location.reload();
+ 
+  // 페이지 이동
+  location.href = "http://naver.com";
+}
+/**
+ * navigator : 현재 실행중인 browser에 대한 정보를 가진 객체
+ */
+function test7(){
+  console.log(navigator);
+}
+</script>
+
+<h2>DOM</h2>
+<input type="button" value="Node" onclick="test11();">
+<div class="img-wrapper"></div> 
+<script>
+/**
+ * Node 객체: 모든 DOM객체가 Node객체를 상속받는다.
+ * 
+ * H2 - HTMLHeadingElement - HTMLElement - Element - Node - EventTarget - Object
+ * 
+ * - firstChild | lastChild | ChildNodes ...
+ * - contains() | appendChild() | removeChild()...
+ */
+function test11(){   
+    var h2 =  document.querySelector("h2:last-of-type");
+    console.dir(h2); 
+
+    //img태그 동적으로 생성
+    // var img = document.createElement("img");
+    // img.src = "images/windowObjects.png";
+    // img.style = "width: 200px;";
+    // //<img src="images/windowObjects.png" style="width: 200px;">
+    // console.log(img);
+
+    // document.querySelector(".img-wrapper").appendChild(img);
+
+    document.querySelector(".img-wrapper").innerHTML 
+      += '<img src="images/windowObjects.png" style="width: 200px;">';
+}
+</script>
+
+</body>
+</html>

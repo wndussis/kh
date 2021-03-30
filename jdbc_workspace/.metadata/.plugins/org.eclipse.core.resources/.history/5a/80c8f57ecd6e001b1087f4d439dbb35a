@@ -1,0 +1,24 @@
+package member.contoller;
+
+import member.model.dao.MemberDao;
+import member.model.vo.Member;
+
+/**
+ * Controller 역할
+ * 
+ *MVC패턴의 시작점이자 전체흐름을 제어. MODEL VIEW CONTROLLER
+ * 
+ * view단으로 부터 요청을 받아서 dao에 다시요청하고,
+ * 그 결과를 view단에 다시 전달해줌
+ *
+*/
+public class MemberController {
+	private MemberDao memberDao = new MemberDao();
+
+	public int insertMember(Member member) {   
+		return memberDao.insertMember(member); //회원객체를 DB에 저장해라(DAO에 요청보냄)
+	}
+}
+
+
+

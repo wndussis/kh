@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js - String | Math | Date</title>
+</head>
+<body>
+   <h1>String</h1> 
+    <input type="button" value="실행" onclick="test1();">
+    <input type="button" value="@실습문제" onclick="test2();">
+    <script>
+    /**
+     * 두개의 인자 문자열과 문자를 입력받고,
+     *  문자열에서 문자가 몇번 출현하는지 리턴하는 함수를 생성하세요
+     * 
+     * countChar("hahaha","a") => 3을 리턴
+     * countChar("abccba", "c") => 2 리턴
+     * countChar("abcde", "x") => 0  리턴
+     */ 
+    var test2 = function(){  
+    var result = countChar("hahaha", "a");
+    console.log(result);
+    result = countChar("abccba", "c");
+    console.log(result);
+    result = countChar("abcde", "x");
+    console.log(result);
+    };
+
+    var countChar = function(str,ch){
+      var cnt = 0;
+    for(var i = 0; i  < str.length; i++){
+      if(str[i] == ch)
+        cnt++;
+      }
+       return cnt;
+    };
+
+
+    /**
+     * String 내장객체 : 문자열 관련 메소드를 제공
+     */ 
+      var test1 = function(){
+        var str = "Samsung Apple Xiomi";
+        console.log(str.length); // length(길이 알수있음)는 속성
+        console.log(str.toUpperCase()); //SAMSUNG  APPLE XIOMI
+        console.log(str.toLowerCase()); //samsung  apple xiomi
+        console.log(str.indexOf('ms')); // 2번지 (str문자열에서 ms가 몇번지에 위치하는가)
+        console.log(str.lastIndexOf('i')); //18번지 
+        console.log(str.charAt(8)); // A  (charAt 문자 하나)
+        console.log(str[8]); // A  , 문자열 -> 문자배열취급해서 사용가능하다.
+
+        //문자열 일부를 리턴: 2번지 ms 잘라오기
+        // substring(start [, end]) , start 인덱스는 포함, end인덱스는 포함되지않음 , [] 이 안에있는건 생략가능하다는 뜻
+        console.log(str.substring(2,4)); // 2번지에서 4번지 전까지 잘라와라
+        console.log(str.substring(2)); //msung  Apple Xiomi
+
+        //substr(strat[,length])
+        console.log(str.substr(2,2)); // ms
+        console.log(str.substr(2)); // msung  Apple Xiomi
+
+        var arr = str.split(" ");  // 공백기준으로 자르기
+        console.log(arr);
+
+      };  // 세미콜론 찍은 이유는 값처럼 취급하기 때문이다. var a = 100; 이런거랑 똑같음 값처럼 취급!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    </script>
+
+
+   <h1>Math</h1>
+   <input type="button" value="실행" onclick="test3();">
+   <script>
+    var test3 = function(){ 
+      var num = 123.456;
+      console.log(Math.round(num)); // 반올림처리, 123 출력
+      console.log(Math.round(num * 100) / 100); // 123.46
+      console.log(Math.ceil(num)); //124
+      console.log(Math.ceil(num * 10) / 10);  // 123.5
+      console.log(Math.floor(num)); //123
+      console.log(Math.floor(num * 10) / 10); // 123.4
+
+      console.log(Math.random()); // 0.0(포함) ~ 1.0(미포함) 사이의 실수 리턴
+      console.log(Math.trunc(Math.random() * 10 +1)); // 1 ~ 10사이의 난수 , < 난수 * 경우의수 + 최소값>
+    };
+   </script>
+
+
+    <input type="button" value="@실습문제" onclick="test4();">
+    <ul id="test-rnd">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <script>
+    /**
+     * 실습문제
+     * #test-rnd 하위의 li태그에 1 ~ 100사이의 난수를 대입하세요.
+     * 단, 짝수라면 글자색을 예쁘게 변경 할것.
+     */ 
+    var test4 =  function(){
+      var lis = document.querySelectorAll("#test-rnd > li");
+
+      for(var i = 0; i < lis.length; i++){
+        // 1 ~ 100 사이의 난수 대입
+         var n = Math.floor(Math.random() * 100) + 1;
+         lis[i].innerHTML = n;
+         // 컬러 초기화 필요
+         lis[i].style.color = "#000";
+
+         //짝수인 경우 컬러값 변경
+         if(n % 2 == 0)
+           lis[i].style.color = "orange";
+          //  (n % 2 == 0) && (lis[i].style.color = "springgreen");
+        }
+    };
+    </script>
+
+   <h1>Date</h1>
+   <input type="button" value="실행" onclick="test5();">
+   <script>
+    /**
+     * Date는 객체생성시점의 날짜/시각정보를 가진 객체
+     */ 
+    var test5 = function(){
+     var now = new Date(); // new연산자 사용가능
+     console.log(now); // Thu Mar 04 2021 19:39:34 GMT+0900 (대한민국 표준시)
+
+     var time1 = new Date(2000,0,1); // 월은 0-based 인덱스 2000년 1월 1일, 1월은 0 으로씀
+     console.log(time1);
+     var time2 = new Date(2000,0,1,15,30,50);
+     console.log(time2);
+     var time3 = new Date("1999/03/01 15:34:20"); //날짜형식의 문자열도 처리가능
+     console.log(time3);
+
+     displayDateTime(now); // 1999/03/01(화) 15:34:20 형식으로 출력할것.
+    };
+   
+   var displayDateTime = function(dt){
+    var yyyy = dt.getFullYear();
+    var mm = get2digit(dt.getMonth() + 1);
+    var dd = get2digit(dt.getDate());
+    var day = dt.getDay();  //일요일(0) ~ 토요일(6)
+    var dayArr = ['일', '월', '화', '수', '목', '금', '토'];
+    var hh = get2digit(dt.getHours());
+    var mi = get2digit(dt.getMinutes());
+    var ss = get2digit(dt.getSeconds());
+
+    alert(yyyy + "/" + mm + "/" + dd 
+        + "(" + dayArr[day] + ") " 
+        + hh + ":" + mi + ":" + ss);
+  };
+
+  var get2digit = function(n){
+    // return n.toString().padStart(2,'0'); // 두자리로 만들고 n을 채우고 앞에다가 0을 채워주세요. 라는뜻
+    return n < 10 ? '0' + n : n; // 삼항연산자 , 위에랑 같은 값 나옴
+  };
+     
+  // 영미님 답안
+//   function displayDateTime(datetime){
+//     var year = datetime.getFullYear();
+//     var month = datetime.getMonth() + 1;
+//     var date = datetime.getDate();
+//     var day = datetime.getDay(); //0~6
+//     var dayName = "";
+//     var hh = datetime.getHours();
+//     var mm = datetime.getMinutes();
+//     var ss = datetime.getSeconds();
+// ​
+//     switch(day){
+//         case 0 : dayName = "일"; break;
+//         case 1 : dayName = "월"; break;
+//         case 2 : dayName = "화"; break;
+//         case 3 : dayName = "수"; break;
+//         case 4 : dayName = "목"; break;
+//         case 5 : dayName = "금"; break;
+//         case 6 : dayName = "토"; break;
+//     }
+// ​
+//     alert(year + "/" + month + "/" + date + "(" + dayName + ") " + hh + ":" + mm + ":" + ss);
+// ​
+// }
+
+   </script>
+
+
+</body>
+</html>
